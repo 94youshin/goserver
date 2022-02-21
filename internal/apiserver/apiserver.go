@@ -64,7 +64,7 @@ func run() error {
 	loadRouter(g)
 
 	insecureServer := http.Server{
-		Addr:    "0.0.0.0",
+		Addr:    "0.0.0.0:8080",
 		Handler: g,
 	}
 
