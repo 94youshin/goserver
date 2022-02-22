@@ -1,11 +1,16 @@
 package apiserver
 
 import (
+	"errors"
 	"fmt"
+	"net/http"
 	"os"
+	"os/signal"
 	"path/filepath"
 	"strings"
+	"syscall"
 
+	"github.com/gin-gonic/gin"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"github.com/usmhk/goserver/pkg/version/verflag"
@@ -52,8 +57,31 @@ Find more apiserver information at:
 }
 
 func run() error {
-	//
-	fmt.Println("hello")
+
+	// create the gin engine
+	g := gin.New()
+
+	loadRouter(g)
+
+	insecureServer := http.Server{
+		Addr:    "0.0.0.0",
+		Handler: g,
+	}
+
+	go func() {
+		fmt.Printf("Start to listening the incoming requests on http address: %s\n", "0.0.0.0:8080")
+		if err := insecureServer.ListenAndServe(); err != nil && errors.Is(err, http.ErrServerClosed) {
+			fmt.Printf("listen: %s\n", err)
+		}
+	}()
+
+	quit := make(chan os.Signal, 1)
+	// kill (no param) default send syscall.SIGTERM
+	// kill -2 is syscall.SIGINT
+	// kill -9 is syscall.SIGKILL but can't be caught, so don't need to add it
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+
 	return nil
 }
 
