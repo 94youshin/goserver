@@ -64,12 +64,12 @@ func run() error {
 	loadRouter(g)
 
 	insecureServer := http.Server{
-		Addr:    "0.0.0.0:8080",
+		Addr:    viper.GetString("address"),
 		Handler: g,
 	}
 
 	go func() {
-		fmt.Printf("Start to listening the incoming requests on http address: %s\n", "0.0.0.0:8080")
+		fmt.Printf("Start to listening the incoming requests on http address: %s\n", viper.GetString("address"))
 		if err := insecureServer.ListenAndServe(); err != nil && errors.Is(err, http.ErrServerClosed) {
 			fmt.Printf("listen: %s\n", err)
 		}

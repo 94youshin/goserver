@@ -1,6 +1,8 @@
 package apiserver
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	ginswagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
@@ -19,6 +21,7 @@ func installController(g *gin.Engine) {
 	// healthz handler.
 	g.GET("/healthz",
 		func(c *gin.Context) {
+			fmt.Println("---------------------------")
 			core.WriteResponse(c, nil, map[string]string{"status": "ok"})
 		})
 
