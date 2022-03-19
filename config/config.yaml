@@ -1,1 +1,10 @@
 address: 0.0.0.0:8080
+db:
+  host: 49.234.12.45
+  username: admin
+  password: 2w3e$R%T
+  database: server
+  max-idle-connections: 100,
+  max-open-connections: 100,
+  max-connection-life-time: 100,
+  log-level: 1

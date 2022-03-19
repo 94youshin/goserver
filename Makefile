@@ -1,7 +1,16 @@
 # ======================================
+VERSION_PACKAGE=github.com/usmhk/goserver/pkg/version
+ROOT_APCKAGE=github.com/usmhk/goserver
+# ======================================
+.DEFAULT_GOAL := all
+
+.PHONY: all
+all: build
+# ======================================
 # Includes
 
 include scripts/make-rules/common.mk
+include scripts/make-rules/golang.mk
 
 # ========================================
 # Usage
@@ -14,6 +23,12 @@ Options:
 endef
 
 export USAGE_OPTIONS
+
+
+# ======================================================
+.PHONY: build
+build:
+	$(MAKE) go.build
 
 ## help: Show this help info.
 .PHONY: help

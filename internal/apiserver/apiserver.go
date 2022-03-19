@@ -17,8 +17,8 @@ import (
 )
 
 const (
-	appName           = "APIServer"
-	defaultConfigName = ""
+	appName           = "apiServer"
+	defaultConfigName = "config.yaml"
 )
 
 var cfgFile string
@@ -35,6 +35,7 @@ Find more apiserver information at:
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		},
 		RunE: func(cmd *cobra.Command, args []string) error {
+			verflag.PrintAndExitIfRequested()
 			return run()
 		},
 		Args: func(cmd *cobra.Command, args []string) error {
