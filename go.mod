@@ -8,7 +8,6 @@ require (
 	github.com/spf13/cobra v1.3.0
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.10.0
-	github.com/swaggo/gin-swagger v1.4.1
 	gorm.io/gorm v1.23.1
 )
 
@@ -48,6 +47,7 @@ require (
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
+	github.com/swaggo/gin-swagger v1.4.1 // indirect
 	github.com/swaggo/swag v1.7.9 // indirect
 	github.com/ugorji/go/codec v1.1.7 // indirect
 	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5 // indirect
