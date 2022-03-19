@@ -6,7 +6,13 @@ type User struct {
 	BaseModel
 
 	// Required: true
-	Username string `json:"username"`
+	Username string `json:"username" gorm:"column:username;not null" binding:"required" validate:"min=1,max=32"`
+
+	Password string `json:"password"`
+
+	NickName string `json:"nickname"`
+
+	Email string `json:"email"`
 }
 
 func (u *User) TableName() string {
