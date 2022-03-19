@@ -1,6 +1,9 @@
 package v1
 
-import "github.com/go-playground/validator/v10"
+import (
+	"github.com/go-playground/validator/v10"
+	metav1 "github.com/usmhk/goserver/pkg/meta/v1"
+)
 
 type User struct {
 	BaseModel
@@ -20,6 +23,8 @@ func (u *User) TableName() string {
 }
 
 type UserList struct {
+	metav1.ListMeta `json:",inline"`
+
 	Items []*User `json:"items"`
 }
 
