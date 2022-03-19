@@ -21,7 +21,7 @@ const (
 	defaultConfigName = ""
 )
 
-var cfgFile string￿
+var cfgFile string
 
 func NewAPIServerCommand() *cobra.Command {
 	cmd := &cobra.Command{

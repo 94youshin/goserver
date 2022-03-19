@@ -1,7 +1,6 @@
 package core
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -23,6 +22,5 @@ func WriteResponse(c *gin.Context, err error, data interface{}) {
 		c.JSON(http.StatusOK, ErrorResonpse{Code: code, Message: message})
 		return
 	}
-	fmt.Println("--------------------")
 	c.JSON(http.StatusOK, data)
 }
