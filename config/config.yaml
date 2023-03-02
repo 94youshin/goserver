@@ -1,6 +1,6 @@
 address: 0.0.0.0:8080
 db:
-  host: 49.234.12.45
+  host: 0.0.0.0
   username: admin
   password: 2w3e$R%T
   database: server
