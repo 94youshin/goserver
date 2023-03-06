@@ -3,6 +3,7 @@ package mysql
 import (
 	"context"
 	"errors"
+	metav1 "github.com/usmhk/goserver/pkg/meta/v1"
 
 	v1 "github.com/usmhk/goserver/internal/apiserver/model/v1"
 	"github.com/usmhk/goserver/pkg/errno"
