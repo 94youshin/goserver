@@ -1,3 +1,7 @@
+/**
+ * version package
+ *
+ */
 package version
 
 import (
@@ -6,6 +10,7 @@ import (
 
 	"github.com/gosuri/uitable"
 )
+
 
 var (
 	// GitVersion is semantic version.

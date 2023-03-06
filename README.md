@@ -1,2 +1,2 @@
 # goserver
-go web server practise
+go web Software engineering
