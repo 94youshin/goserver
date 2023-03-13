@@ -8,3 +8,5 @@ db:
   max-open-connections: 100
   max-connection-life-time: 100
   log-level: 2
+es:
+  servers: 127.0.0.1:9200
